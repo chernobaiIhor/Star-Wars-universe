@@ -15,6 +15,6 @@ export const defaultQueryClientOptions: QueryClientConfig = {
 };
 
 export const QUERY_KEYS = {
-  STAR_WARS_ENTITIES: 'star-wars-entities',
-  STAR_WARS_ENTITY: 'star-wars-entity',
+  CHARACTERS: 'characters',
+  CHARACTER: 'character',
 } as const;

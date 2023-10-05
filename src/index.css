@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
 
-
 body {
   overflow-x: hidden;
   overflow-y: scroll;
+  min-height: 100vh;
+  background: url('src/assets/background.jpeg') no-repeat;
+  background-size: cover;
 }
+

@@ -1,7 +1,7 @@
 export const ROUTES = {
   ROOT: '/',
-  LIST: '/list',
-  VIEW: '/view/:id',
+  CHARACTERS_LIST: '/characters',
+  CHARACTERS_VIEW: '/characters/:id',
   ERROR: '/error',
   NOT_FOUND: '/not-found',
 } as const;

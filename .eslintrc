@@ -30,6 +30,12 @@
       "warn",
       { "allowConstantExport": true }
     ],
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": false
+      }
+    ],
     "prettier/prettier": [ "error" ],
     "import/order": [
       "error",
