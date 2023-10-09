@@ -1,4 +1,4 @@
-import { Container, Stack, CircularProgress, Divider } from '@mui/material';
+import { Container, Stack, CircularProgress } from '@mui/material';
 
 import { EMPTY_STATE } from 'src/constants/errors';
 

@@ -10,9 +10,11 @@ export const FilmsTable = ({ films }: Props) => (
   <Table>
     <TableHead>
       <TableRow>
-        <TableCell />
-        <TableCell>Title</TableCell>
-        <TableCell align="right">Released Years</TableCell>
+        <TableCell size="small">#</TableCell>
+        <TableCell size="small">Title</TableCell>
+        <TableCell size="small" align="right">
+          Released
+        </TableCell>
       </TableRow>
     </TableHead>
     <TableBody>
@@ -20,7 +22,7 @@ export const FilmsTable = ({ films }: Props) => (
         <TableRow key={title}>
           <TableCell>{index + 1}</TableCell>
           <TableCell>{title}</TableCell>
-          <TableCell align="right">{years}</TableCell>
+          <TableCell align="right">{years} years</TableCell>
         </TableRow>
       ))}
     </TableBody>
