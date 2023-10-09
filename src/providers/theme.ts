@@ -12,11 +12,23 @@ export const theme = createTheme({
     },
   },
   components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontSize: '14px',
+          textTransform: 'capitalize',
+        },
+      },
+    },
     MuiTable: {
       styleOverrides: {
         root: {
           background: color.gray[500],
-          minWidth: 650,
+          '&.mobile': {
+            'th, td': {
+              padding: '6px 10px',
+            },
+          },
         },
       },
     },

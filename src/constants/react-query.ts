@@ -17,4 +17,5 @@ export const defaultQueryClientOptions: QueryClientConfig = {
 export const QUERY_KEYS = {
   CHARACTERS: 'characters',
   CHARACTER: 'character',
+  FIlM: 'film',
 } as const;

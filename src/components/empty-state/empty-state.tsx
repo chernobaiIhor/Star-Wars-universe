@@ -17,10 +17,10 @@ export const EmptyState = ({ title, message }: Props) => (
     }}
   >
     <Stack spacing={2}>
-      <Typography variant="h5" color="primary.dark">
+      <Typography variant="h6" color="primary.dark">
         {title || 'No character found with your search filters'}
       </Typography>
-      <Typography variant="h5" color="primary.dark">
+      <Typography variant="h6" color="primary.dark">
         {message || 'Please change/reset your filters and try again'}
       </Typography>
     </Stack>

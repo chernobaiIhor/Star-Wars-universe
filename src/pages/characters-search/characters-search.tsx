@@ -1,36 +1,34 @@
-import { Container, Button, CircularProgress, Stack, Divider } from '@mui/material';
+import { Container, Button, CircularProgress, Stack, Divider, useMediaQuery } from '@mui/material';
 
 import { DEFAULT_SEARCH_PARAMS } from 'src/constants/api';
 
+import { Title } from 'src/components/title';
+import { EmptyState } from 'src/components/empty-state';
 import { CharactersTable } from 'src/components/characters-table';
-
-import { theme } from 'src/providers/theme';
 
 import { useSearchCharacters } from 'src/hooks/characters/useSearchCharacters';
 
 export const CharactersSearch = () => {
+  const isDesktop = useMediaQuery('(min-width:600px)');
   const { characters = [], isLoading, count, handleFetchNextPage } = useSearchCharacters();
 
   return (
     <Container>
-      <Stack
-        alignItems="center"
-        justifyContent="start"
-        m="2rem 0 3rem"
-        p="1rem"
-        spacing={1}
-        sx={{
-          border: `2px solid ${theme.palette.primary.main}`,
-          borderRadius: '0.5rem',
-        }}
-      >
-        <CharactersTable items={characters} />
-        <Divider />
+      <Stack alignItems="center" justifyContent="start" my="1rem" p="1rem" spacing={1}>
+        {!characters.length && !isLoading ? (
+          <EmptyState />
+        ) : (
+          <>
+            <Title text="Characters List" color="primary" />
+            <CharactersTable items={characters} isDesktop={isDesktop} />
+            <Divider />
+          </>
+        )}
         {isLoading ? (
-          <CircularProgress size={20} />
+          <CircularProgress size={30} />
         ) : (
           count > DEFAULT_SEARCH_PARAMS.size && (
-            <Button variant="contained" onClick={handleFetchNextPage}>
+            <Button variant="contained" fullWidth={!isDesktop} onClick={handleFetchNextPage}>
               Show More
             </Button>
           )

@@ -3,24 +3,27 @@ import { Link as RouterLink } from 'react-router-dom';
 
 import { ROUTES } from 'src/constants/routes';
 
+import { replaceDigit } from 'src/utils/replaceDigit';
+
 import { Character } from 'src/models/character';
 
 interface Props {
   items: Character[];
+  isDesktop: boolean;
 }
 
-export const CharactersTable = ({ items }: Props) => {
-  const getCharacterLink = (url: string) => ROUTES.CHARACTERS_VIEW.replace(':id', url.replace(/[^0-9]/g, ''));
+export const CharactersTable = ({ items, isDesktop }: Props) => {
+  const getCharacterLink = (url: string) => ROUTES.CHARACTERS_VIEW.replace(':id', replaceDigit(url));
 
   return (
     <TableContainer component={Paper}>
-      <Table>
+      <Table className={isDesktop ? '' : 'mobile'}>
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
-            <TableCell align="right">Birth Year</TableCell>
+            <TableCell align="right">{isDesktop ? 'Birth Year' : 'Year'}</TableCell>
             <TableCell align="right">Gender</TableCell>
-            <TableCell align="right">Films Count</TableCell>
+            <TableCell align="right">{isDesktop ? 'Films Count' : 'Films'}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

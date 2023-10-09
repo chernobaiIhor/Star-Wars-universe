@@ -3,8 +3,6 @@
 body {
   overflow-x: hidden;
   overflow-y: scroll;
-  min-height: 100vh;
-  background: url('src/assets/background.jpeg') no-repeat;
-  background-size: cover;
+  background-color: black!important;
 }
 

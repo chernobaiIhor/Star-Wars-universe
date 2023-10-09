@@ -1,20 +1,23 @@
-import { Metadata } from 'src/models/metadata';
+import { Metadata } from './metadata';
 
-type Gender = 'male' | 'female';
+export interface BaseCharacter {
+  vehicles: string[];
+  starships: string[];
+  species: string[];
+  url: string;
+}
 
-export interface Character extends Metadata {
+export interface Character extends BaseCharacter, Metadata {
   birth_year: string;
   eye_color: string;
   films: string[];
-  gender: Gender;
+  gender: string;
   hair_color: string;
   height: string;
   homeworld: string;
   mass: string;
   name: string;
   skin_color: string;
-  species: string[];
-  starships: string[];
-  url: string;
-  vehicles: string[];
 }
+
+export type CharacterUi = Record<string, string>;

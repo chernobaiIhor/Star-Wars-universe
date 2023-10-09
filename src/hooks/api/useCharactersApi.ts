@@ -5,6 +5,8 @@ import { DEFAULT_SEARCH_PARAMS } from 'src/constants/api';
 
 import { CharactersService } from 'src/services/characters-service';
 
+import { catchServerErrors, ErrorResponse } from 'src/utils/catchServerError';
+
 import { SearchRequest } from 'src/models/base';
 
 const charactersService = new CharactersService();
@@ -26,7 +28,7 @@ export const useInfiniteSearchTheatersQuery = (filters: SearchRequest) => {
 
         return allPages?.length + 1;
       },
-      onError: (error: string) => console.warn(error || 'An error occurred while searching characters'),
+      onError: (error: ErrorResponse) => catchServerErrors(error),
     },
   );
 };
@@ -41,7 +43,7 @@ export const useSearchCharacterByIdQuery = (id: string | null) => {
     },
     {
       enabled: !!id,
-      onError: (error: string) => console.warn(error || 'An error occurred while searching characters'),
+      onError: (error: ErrorResponse) => catchServerErrors(error),
     },
   );
 };
